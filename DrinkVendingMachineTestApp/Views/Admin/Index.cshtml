@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Aque Vibe";
+    List<DrinkMachine> DrinkMachines = (List<DrinkMachine>)ViewData["DrinkMachines"];
+}
+
+<section id="admin_section">
+    <h1>Панель администратора</h1>
+    <select onchange="select_drink_machine(this)" id="select_drink_machine" name="select_drink_machine">
+        <option disabled selected> -- Автомат с напитками -- </option>
+        @foreach (DrinkMachine drinkMachine in DrinkMachines)
+        {
+            <option value=@drinkMachine.Id>@drinkMachine.Address</option>
+        }
+    </select>
+
+    <div id="admin_panels">
+        <div>
+            <div>
+                <h2>Напитки</h2>
+                @*<a><img src="~/images/icons/plus.png" /></a>*@
+            </div>
+            <div>
+                <table id="drinks_table">
+                    <tr>
+                        <th>Название</th>
+                        <th>Стоимость</th>
+                        <th>Количество</th>
+                        <th>Путь к фото</th>
+                    </tr>
+                </table>
+                <div class="card">
+                    <img id="drink_input_image" />
+                    
+                    <div>
+                        <h3>Название</h3>
+                        <input id="drink_name_input" type="text" />
+                        <h3>Стоимость</h3>
+                        <input id="drink_cost_input" type="number" />
+                        <h3>Количество</h3>
+                        <input id="drink_count_input" type="number" />
+                        <a id="save_btn" class="btn">Сохранить</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h2>Монеты</h2>
+            <div>
+                <table id="coins_table">
+                    <tr>
+                        <th>Номинал</th>
+                        <th>Количество</th>
+                        <th>Статус</th>
+                    </tr>
+                </table>
+                <div class="card">
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

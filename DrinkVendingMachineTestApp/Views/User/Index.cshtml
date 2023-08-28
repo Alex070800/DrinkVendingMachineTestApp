@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Aque Vibe";
+    List<Drink> Drinks = (List<Drink>)ViewData["Drinks"];
+
+}
+
+<section>
+    <div id="drink_machine">
+        <div id="drinks_block" class="panel">
+            <div id="push">
+                <div>
+                    <p>PUSH</p>
+                </div>
+
+            </div>
+            <div id="drink_container">
+                @foreach (Drink drink in Drinks)
+                {
+                    <div class="drink_card" onclick="check_drink(this)" data=@drink.Id>
+                        <div class="drink">
+                            <img src=@drink.ImagePath>
+                        </div>
+                        <div class="title">
+                            <p>@drink.Name</p>
+                            <p>@drink.Price руб.</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div id="user_panel">
+            <div class="panel" id="displey">
+                <div id="monitor">
+                    <p id="cash_sum">Кредит: </p>
+                    <p id="cost_drink">Стоимость: </p>
+                    <p>Сдача: </p>
+                </div>
+                <div id="btns">
+                    <a onclick="buy_drink()">Купить</a>
+                    <a onclick="return_cash_back()">Сдача</a>
+                </div>
+            </div>
+
+            <div id="coins">
+                <a onclick="checkCoin(this)" data="1" class="coin"><img src="~/images/coin/1.png" /></a>
+                <a onclick="checkCoin(this)" data="2" class="coin"><img src="~/images/coin/2.png" /></a>
+                <a onclick="checkCoin(this)" data="5" class="coin"><img src="~/images/coin/5.png" /></a>
+                <a onclick="checkCoin(this)" data="10" class="coin"><img src="~/images/coin/10.png" /></a>
+            </div>
+            <div id="add_coin">
+                <a onclick="add_coin()">Внести</a>
+                <div id="for_coin">
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <div id="cash_back">
+
+            </div>
+        </div>
+    </div>
+</section>

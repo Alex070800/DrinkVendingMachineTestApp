@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="shortcut icon" href="/images/icons/logo_icon.png" type="image/png">
+    <link rel="stylesheet" href="~/less/style.css" />
+</head>
+<body>
+    <header>
+        <a asp-area="" asp-controller="User" asp-action="Index"><img src="~/images/icons/logo_icon.png" /> </a>
+        <h1>Aque Vibe</h1>
+    </header>
+
+    <main>
+        @RenderBody()
+    </main>
+
+    <footer>
+        <p>&copy; 2023 - Лукьянова Алена</p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
